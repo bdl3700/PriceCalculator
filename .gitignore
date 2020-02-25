@@ -11,6 +11,8 @@
 coveragereport/
 coverage.opencover.xml
 
+#The specific Item Types I'll be using in practice
+Items.cs
 
 # Build results
 [Dd]ebug/
