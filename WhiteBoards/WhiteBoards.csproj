@@ -35,5 +35,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="AbstractItemType.png" />
+    <Content Include="architecture.png" />
+    <Content Include="GUI.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
