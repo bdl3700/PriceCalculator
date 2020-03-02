@@ -30,15 +30,6 @@ namespace Items
         public abstract double Calculate(double cost);
         
         /// <summary>
-        /// Follows simple rules to cleanup a price and make it more presentable
-        /// </summary>
-        /// <returns></returns>
-        protected double CleanupPrice()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// Used to round the price of the given price to the specified threshold
         /// </summary>
         /// <param name="price">The unrounded price of the item</param>
@@ -53,7 +44,16 @@ namespace Items
         /// <returns>The input price with the appropriate amount of cents</returns>
         public double PrepDecimal(double price)
         {
-            throw new NotImplementedException();
+            price = Math.Round(price);
+
+            if (price%10 == 0)
+            {
+                return price - .05;
+            }
+            else
+            {
+                return price - .01;
+            }
         }
     }
 }

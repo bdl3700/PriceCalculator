@@ -43,6 +43,11 @@ namespace PriceCalculator_Test
             }
 
             Console.WriteLine($"That {type} would cost ${item.Calculate(cost)}");
+            Console.WriteLine("Would you like to test another Item (Y/N)");
+            if (Console.ReadLine().ToUpper().Equals("Y"))
+            {
+                Main(args);
+            }
         }
     }
 }
