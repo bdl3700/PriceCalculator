@@ -35,7 +35,14 @@ namespace Items
         /// <param name="price">The unrounded price of the item</param>
         /// <param name="threshold">The number of dollars to which to round the price</param>
         /// <returns>A rounded price</returns>
-        public abstract double Round(double price, double threshold);
+        public double Round(double price, double threshold)
+        {
+            if ((price % threshold) / threshold < .3)
+            {
+                return price - (price % threshold);
+            }
+            return price + (threshold - (price % threshold));
+        }
 
         /// <summary>
         /// Used to set the cents of the price prior to reporting the final price.

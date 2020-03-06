@@ -31,7 +31,7 @@ namespace PriceCalculator_Test
                     item = new Accessory();
                     break;
                 case "ammo":
-                    item = new Accessory();
+                    item = new Ammo();
                     break;
             }
 

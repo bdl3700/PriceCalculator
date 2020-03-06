@@ -37,7 +37,6 @@
             this.CostTB = new System.Windows.Forms.TextBox();
             this.TotalLabel = new System.Windows.Forms.Label();
             this.TotalTB = new System.Windows.Forms.TextBox();
-            this.CalculateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // HeaderLabel
@@ -136,22 +135,13 @@
             this.TotalTB.Name = "TotalTB";
             this.TotalTB.Size = new System.Drawing.Size(130, 38);
             this.TotalTB.TabIndex = 10;
+            this.TotalTB.ReadOnly = true;
             // 
-            // CalculateButton
-            // 
-            this.CalculateButton.Location = new System.Drawing.Point(162, 424);
-            this.CalculateButton.Name = "CalculateButton";
-            this.CalculateButton.Size = new System.Drawing.Size(249, 74);
-            this.CalculateButton.TabIndex = 11;
-            this.CalculateButton.Text = "Calculate";
-            this.CalculateButton.UseVisualStyleBackColor = true;
-            // 
-            // PriceCalculator
+            // PriceCalculatorGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 572);
-            this.Controls.Add(this.CalculateButton);
+            this.ClientSize = new System.Drawing.Size(618, 512);
             this.Controls.Add(this.TotalTB);
             this.Controls.Add(this.TotalLabel);
             this.Controls.Add(this.CostTB);
@@ -161,8 +151,8 @@
             this.Controls.Add(this.CostLabel);
             this.Controls.Add(this.TypeLabel);
             this.Controls.Add(this.HeaderLabel);
-            this.MinimumSize = new System.Drawing.Size(650, 660);
-            this.Name = "PriceCalculator";
+            this.MinimumSize = new System.Drawing.Size(650, 600);
+            this.Name = "PriceCalculatorGUI";
             this.Text = "Price Calculator";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -180,7 +170,6 @@
         private System.Windows.Forms.TextBox CostTB;
         private System.Windows.Forms.Label TotalLabel;
         private System.Windows.Forms.TextBox TotalTB;
-        private System.Windows.Forms.Button CalculateButton;
     }
 }
 
