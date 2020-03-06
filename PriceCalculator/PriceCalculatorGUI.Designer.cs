@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PriceCalculatorGUI));
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.TypeLabel = new System.Windows.Forms.Label();
             this.CostLabel = new System.Windows.Forms.Label();
@@ -133,9 +134,9 @@
             this.TotalTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.TotalTB.Location = new System.Drawing.Point(391, 347);
             this.TotalTB.Name = "TotalTB";
+            this.TotalTB.ReadOnly = true;
             this.TotalTB.Size = new System.Drawing.Size(130, 38);
             this.TotalTB.TabIndex = 10;
-            this.TotalTB.ReadOnly = true;
             // 
             // PriceCalculatorGUI
             // 
@@ -151,6 +152,7 @@
             this.Controls.Add(this.CostLabel);
             this.Controls.Add(this.TypeLabel);
             this.Controls.Add(this.HeaderLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(650, 600);
             this.Name = "PriceCalculatorGUI";
             this.Text = "Price Calculator";
