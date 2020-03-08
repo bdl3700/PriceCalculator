@@ -35,6 +35,7 @@
             this.AccessoryRB = new System.Windows.Forms.RadioButton();
             this.AmmoRB = new System.Windows.Forms.RadioButton();
             this.FirearmRB = new System.Windows.Forms.RadioButton();
+            this.SupressorRB = new System.Windows.Forms.RadioButton();
             this.CostTB = new System.Windows.Forms.TextBox();
             this.TotalLabel = new System.Windows.Forms.Label();
             this.TotalTB = new System.Windows.Forms.TextBox();
@@ -108,6 +109,19 @@
             this.FirearmRB.TabStop = true;
             this.FirearmRB.Text = "Firearm";
             this.FirearmRB.UseVisualStyleBackColor = true;
+            //
+            // SupressorRB
+            //
+            this.SupressorRB.AutoSize = true;
+            this.SupressorRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.SupressorRB.Location = new System.Drawing.Point(19, 415);
+            this.SupressorRB.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.SupressorRB.Name = "SupressorRB";
+            this.SupressorRB.Size = new System.Drawing.Size(144, 35);
+            this.SupressorRB.TabIndex = 5;
+            this.SupressorRB.TabStop = true;
+            this.SupressorRB.Text = "Supressor";
+            this.SupressorRB.UseVisualStyleBackColor = true;
             // 
             // CostTB
             // 
@@ -149,6 +163,7 @@
             this.Controls.Add(this.FirearmRB);
             this.Controls.Add(this.AmmoRB);
             this.Controls.Add(this.AccessoryRB);
+            this.Controls.Add(this.SupressorRB);
             this.Controls.Add(this.CostLabel);
             this.Controls.Add(this.TypeLabel);
             this.Controls.Add(this.HeaderLabel);
@@ -169,6 +184,7 @@
         private System.Windows.Forms.RadioButton AccessoryRB;
         private System.Windows.Forms.RadioButton AmmoRB;
         private System.Windows.Forms.RadioButton FirearmRB;
+        private System.Windows.Forms.RadioButton SupressorRB;
         private System.Windows.Forms.TextBox CostTB;
         private System.Windows.Forms.Label TotalLabel;
         private System.Windows.Forms.TextBox TotalTB;

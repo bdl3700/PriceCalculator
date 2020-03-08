@@ -28,12 +28,14 @@ namespace PriceCalculator
             AccessoryRB.Click += AccessoryRB_Click;
             FirearmRB.Click += FirearmRB_Click;
             AmmoRB.Click += AmmoRB_Click;
+            SupressorRB.Click += SupressorRB_Click;
             CostTB.KeyUp += CostTB_KeyUp;
             CostTB.KeyPress += CostTB_KeyPress;
 
             //Select the default Item type
             AccessoryRB.PerformClick();
         }
+
 
         /// <summary>
         /// Handles recalculating the price after adding a new digit to the price
@@ -57,6 +59,11 @@ namespace PriceCalculator
             {
                 e.Handled = true;
                 MessageBox.Show("Please only enter digits in the cost box.");
+            }
+            if (e.KeyChar == '-')
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter only positive numbers in the cost box");
             }
         }
 
@@ -90,6 +97,12 @@ namespace PriceCalculator
         private void AccessoryRB_Click(object sender, EventArgs e)
         {
             CurrentItem = new Accessory();
+            ReCalculate();
+        }
+
+        private void SupressorRB_Click(object sender, EventArgs e)
+        {
+            CurrentItem = new Supressor();
             ReCalculate();
         }
 
