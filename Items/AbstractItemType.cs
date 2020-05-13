@@ -45,6 +45,16 @@ namespace Items
         }
 
         /// <summary>
+        /// Adds the appropriate sales tax for salt lake county, Utah as of May 2019.
+        /// </summary>
+        /// <param name="price">The price to add tax to</param>
+        /// <returns>The given price with salestax added</returns>
+        public double AddTax(double price)
+        {
+            return Math.Round((price * 1.0725), 2);
+        }
+
+        /// <summary>
         /// Used to set the cents of the price prior to reporting the final price.
         /// </summary>
         /// <param name="price">The rounded price of the item</param>

@@ -113,7 +113,8 @@ namespace PriceCalculator
         private void ReCalculate()
         {
             double.TryParse(CostTB.Text, out double cost);
-            TotalTB.Text = CurrentItem.Calculate(cost).ToString();
+            RetailPriceTB.Text = CurrentItem.Calculate(cost).ToString();
+            TotalPriceTB.Text = CurrentItem.AddTax(CurrentItem.Calculate(cost)).ToString();
         }
     }
 }
