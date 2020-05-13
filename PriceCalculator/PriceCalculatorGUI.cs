@@ -27,13 +27,37 @@ namespace PriceCalculator
             //Add Event Handlers
             AccessoryRB.Click += AccessoryRB_Click;
             FirearmRB.Click += FirearmRB_Click;
+            FirearmRB.CheckedChanged += FirearmRB_CheckedChanged;
             AmmoRB.Click += AmmoRB_Click;
             SupressorRB.Click += SupressorRB_Click;
             CostTB.KeyUp += CostTB_KeyUp;
             CostTB.KeyPress += CostTB_KeyPress;
+            AddBCICheckBox.Click += AddBCICheckBox_Click;
 
             //Select the default Item type
             AccessoryRB.PerformClick();
+        }
+
+        /// <summary>
+        /// Handles recalculating the price after a chenge in whether or not a BCI check is necessary.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddBCICheckBox_Click(object sender, EventArgs e)
+        {
+            ReCalculate();
+        }
+
+        /// <summary>
+        /// Enables or Disables the option to add a BCI check based upon whether or not the transaction is for a firearm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FirearmRB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (AddBCICheckBox.Checked)
+                AddBCICheckBox.Checked = false;
+            AddBCICheckBox.Enabled = !AddBCICheckBox.Enabled;
         }
 
 
@@ -113,8 +137,14 @@ namespace PriceCalculator
         private void ReCalculate()
         {
             double.TryParse(CostTB.Text, out double cost);
-            RetailPriceTB.Text = CurrentItem.Calculate(cost).ToString();
-            TotalPriceTB.Text = CurrentItem.AddTax(CurrentItem.Calculate(cost)).ToString();
+            double price = CurrentItem.Calculate(cost);
+
+            //Add the cost of a BCI check if necessary.
+            if (AddBCICheckBox.Checked)
+                price = price + 7.5;
+
+            RetailPriceTB.Text = price.ToString();
+            TotalPriceTB.Text = CurrentItem.AddTax(price).ToString();
         }
     }
 }

@@ -41,6 +41,7 @@
             this.RetailPriceTB = new System.Windows.Forms.TextBox();
             this.TotalPriceLabel = new System.Windows.Forms.Label();
             this.TotalPriceTB = new System.Windows.Forms.TextBox();
+            this.AddBCICheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // HeaderLabel
@@ -173,6 +174,20 @@
             this.TotalPriceTB.ReadOnly = true;
             this.TotalPriceTB.Size = new System.Drawing.Size(130, 38);
             this.TotalPriceTB.TabIndex = 10;
+            //
+            // AddBCICheckBox
+            //
+            this.AddBCICheckBox.AutoSize = true;
+            this.AddBCICheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.AddBCICheckBox.Location = new System.Drawing.Point(19, 483);
+            this.AddBCICheckBox.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.AddBCICheckBox.Name = "AddBCICheckBox";
+            this.AddBCICheckBox.Size = new System.Drawing.Size(144, 35);
+            this.AddBCICheckBox.TabIndex = 5;
+            this.AddBCICheckBox.TabStop = true;
+            this.AddBCICheckBox.Text = "Add BCI Check";
+            this.AddBCICheckBox.UseVisualStyleBackColor = true;
+            this.AddBCICheckBox.Enabled = false;
             // 
             // PriceCalculatorGUI
             // 
@@ -191,6 +206,7 @@
             this.Controls.Add(this.SupressorRB);
             this.Controls.Add(this.TypeLabel);
             this.Controls.Add(this.HeaderLabel);
+            this.Controls.Add(this.AddBCICheckBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(650, 700);
             this.Name = "PriceCalculatorGUI";
@@ -214,6 +230,7 @@
         private System.Windows.Forms.TextBox RetailPriceTB;
         private System.Windows.Forms.Label TotalPriceLabel;
         private System.Windows.Forms.TextBox TotalPriceTB;
+        private System.Windows.Forms.CheckBox AddBCICheckBox;
     }
 }
 
