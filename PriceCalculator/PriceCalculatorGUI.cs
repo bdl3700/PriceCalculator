@@ -30,8 +30,11 @@ namespace PriceCalculator
             FirearmRB.CheckedChanged += FirearmRB_CheckedChanged;
             AmmoRB.Click += AmmoRB_Click;
             SupressorRB.Click += SupressorRB_Click;
-            CostTB.KeyUp += CostTB_KeyUp;
-            CostTB.KeyPress += CostTB_KeyPress;
+            CostTB.KeyUp += TextBoxes_KeyUp;
+            CostTB.KeyPress += BasicTextBox_KeyPress;
+            QuantityTB.KeyUp += TextBoxes_KeyUp;
+            QuantityTB.KeyPress += BasicTextBox_KeyPress;
+            QuantityTB.KeyPress += QuantityTB_KeyPress;
             AddBCICheckBox.Click += AddBCICheckBox_Click;
 
             //Select the default Item type
@@ -62,11 +65,11 @@ namespace PriceCalculator
 
 
         /// <summary>
-        /// Handles recalculating the price after adding a new digit to the price
+        /// Handles recalculating the price after adding a new digit to the price or changing the quantity
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CostTB_KeyUp(object sender, KeyEventArgs e)
+        private void TextBoxes_KeyUp(object sender, KeyEventArgs e)
         {
             ReCalculate();
         }
@@ -77,17 +80,31 @@ namespace PriceCalculator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CostTB_KeyPress(object sender, KeyPressEventArgs e)
+        private void BasicTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
-                MessageBox.Show("Please only enter digits in the cost box.");
+                MessageBox.Show("Please enter only digits");
             }
             if (e.KeyChar == '-')
             {
                 e.Handled = true;
-                MessageBox.Show("Please enter only positive numbers in the cost box");
+                MessageBox.Show("Please enter only positive numbers");
+            }
+        }
+
+        /// <summary>
+        /// disallows the use of '.' characters in the quantity box in order to assure integer item quantities.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QuantityTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.')
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter only whole numbers in the quantity box");
             }
         }
 
@@ -137,14 +154,29 @@ namespace PriceCalculator
         private void ReCalculate()
         {
             double.TryParse(CostTB.Text, out double cost);
-            double price = CurrentItem.Calculate(cost);
+
+            double unitPrice = CurrentItem.Calculate(cost);
+            RetailPriceTB.Text = unitPrice.ToString();
+
+            int.TryParse(QuantityTB.Text, out int quantity);
+            double subTotal = unitPrice * quantity;
+            SubTotalTB.Text = subTotal.ToString();
 
             //Add the cost of a BCI check if necessary.
             if (AddBCICheckBox.Checked)
-                price = price + 7.5;
+                subTotal = subTotal + 7.5;
 
-            RetailPriceTB.Text = price.ToString();
-            TotalPriceTB.Text = CurrentItem.AddTax(price).ToString();
+            TotalTB.Text = AddTax(subTotal).ToString();
+        }
+
+        /// <summary>
+        /// Adds the appropriate sales tax for salt lake county, Utah as of May 2019.
+        /// </summary>
+        /// <param name="price">The price to add tax to</param>
+        /// <returns>The given price with salestax added</returns>
+        public double AddTax(double price)
+        {
+            return Math.Round((price * 1.0725), 2);
         }
     }
 }
