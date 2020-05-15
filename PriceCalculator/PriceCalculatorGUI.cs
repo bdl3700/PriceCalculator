@@ -38,7 +38,9 @@ namespace PriceCalculator
             AddBCICheckBox.Click += AddBCICheckBox_Click;
 
             //Select the default Item type
-            AccessoryRB.PerformClick();
+            AccessoryRB.Checked = true;
+            CurrentItem = new Accessory();
+            ReCalculate();
         }
 
         /// <summary>

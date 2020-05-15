@@ -40,6 +40,7 @@
             this.CostTB = new System.Windows.Forms.TextBox();
             this.RetailPriceLabel = new System.Windows.Forms.Label();
             this.RetailPriceTB = new System.Windows.Forms.TextBox();
+            this.QuantityXLabel = new System.Windows.Forms.Label();
             this.QuantityLabel = new System.Windows.Forms.Label();
             this.QuantityTB = new System.Windows.Forms.TextBox();
             this.SubTotalLabel = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.HeaderLabel.Location = new System.Drawing.Point(200, 56);
             this.HeaderLabel.Name = "HeaderLabel";
             this.HeaderLabel.Size = new System.Drawing.Size(304, 46);
-            this.HeaderLabel.TabIndex = 0;
             this.HeaderLabel.Text = "Price Calculator";
             // 
             // TypeLabel
@@ -65,7 +65,6 @@
             this.TypeLabel.Location = new System.Drawing.Point(13, 145);
             this.TypeLabel.Name = "TypeLabel";
             this.TypeLabel.Size = new System.Drawing.Size(81, 36);
-            this.TypeLabel.TabIndex = 1;
             this.TypeLabel.Text = "Type";
             // 
             // AccessoryRB
@@ -76,7 +75,7 @@
             this.AccessoryRB.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.AccessoryRB.Name = "AccessoryRB";
             this.AccessoryRB.Size = new System.Drawing.Size(178, 35);
-            this.AccessoryRB.TabIndex = 3;
+            this.AccessoryRB.TabIndex = 2;
             this.AccessoryRB.TabStop = true;
             this.AccessoryRB.Text = "Accessory";
             this.AccessoryRB.UseVisualStyleBackColor = true;
@@ -89,7 +88,7 @@
             this.AmmoRB.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.AmmoRB.Name = "AmmoRB";
             this.AmmoRB.Size = new System.Drawing.Size(128, 35);
-            this.AmmoRB.TabIndex = 4;
+            this.AmmoRB.TabIndex = 3;
             this.AmmoRB.TabStop = true;
             this.AmmoRB.Text = "Ammo";
             this.AmmoRB.UseVisualStyleBackColor = true;
@@ -102,7 +101,7 @@
             this.FirearmRB.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.FirearmRB.Name = "FirearmRB";
             this.FirearmRB.Size = new System.Drawing.Size(144, 35);
-            this.FirearmRB.TabIndex = 5;
+            this.FirearmRB.TabIndex = 4;
             this.FirearmRB.TabStop = true;
             this.FirearmRB.Text = "Firearm";
             this.FirearmRB.UseVisualStyleBackColor = true;
@@ -127,7 +126,6 @@
             this.CostLabel.Location = new System.Drawing.Point(385, 145);
             this.CostLabel.Name = "CostLabel";
             this.CostLabel.Size = new System.Drawing.Size(76, 36);
-            this.CostLabel.TabIndex = 2;
             this.CostLabel.Text = "Cost:";
             // 
             // CostTB
@@ -137,7 +135,7 @@
             this.CostTB.Location = new System.Drawing.Point(391, 195);
             this.CostTB.Name = "CostTB";
             this.CostTB.Size = new System.Drawing.Size(130, 38);
-            this.CostTB.TabIndex = 7;
+            this.CostTB.TabIndex = 0;
             // 
             // RetailPriceLabel
             // 
@@ -146,7 +144,6 @@
             this.RetailPriceLabel.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.RetailPriceLabel.Name = "RetailPriceLabel";
             this.RetailPriceLabel.Size = new System.Drawing.Size(87, 32);
-            this.RetailPriceLabel.TabIndex = 9;
             this.RetailPriceLabel.Text = "Retail Price:";
             // 
             // RetailPriceTB
@@ -157,7 +154,16 @@
             this.RetailPriceTB.Name = "RetailPriceTB";
             this.RetailPriceTB.ReadOnly = true;
             this.RetailPriceTB.Size = new System.Drawing.Size(130, 38);
-            this.RetailPriceTB.TabIndex = 10;
+            this.RetailPriceTB.TabStop = false;
+            //
+            // QuantityXLabel
+            //
+            this.QuantityXLabel.AutoSize = true;
+            this.QuantityXLabel.Location = new System.Drawing.Point(533, 345);
+            this.QuantityXLabel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.QuantityXLabel.Name = "QuantityXLabel";
+            this.QuantityXLabel.Size = new System.Drawing.Size(85, 32);
+            this.QuantityXLabel.Text = "x";
             //
             // QuantityLabel
             //
@@ -166,7 +172,6 @@
             this.QuantityLabel.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.QuantityLabel.Name = "QuantityLabel";
             this.QuantityLabel.Size = new System.Drawing.Size(85, 32);
-            this.QuantityLabel.TabIndex = 9;
             this.QuantityLabel.Text = "Quantity:";
             //
             // QuantityTB
@@ -176,7 +181,7 @@
             this.QuantityTB.Location = new System.Drawing.Point(571, 345);
             this.QuantityTB.Name = "QuantityTB";
             this.QuantityTB.Size = new System.Drawing.Size(85, 38);
-            this.QuantityTB.TabIndex = 10;
+            this.QuantityTB.TabIndex = 1;
             this.QuantityTB.Text = "1";
             //
             // SubTotalLabel
@@ -186,7 +191,6 @@
             this.SubTotalLabel.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.SubTotalLabel.Name = "SubTotalLabel";
             this.SubTotalLabel.Size = new System.Drawing.Size(87, 32);
-            this.SubTotalLabel.TabIndex = 9;
             this.SubTotalLabel.Text = "SubTotal:";
             //
             // SubTotalTB
@@ -197,7 +201,7 @@
             this.SubTotalTB.Name = "SubTotalTB";
             this.SubTotalTB.ReadOnly = true;
             this.SubTotalTB.Size = new System.Drawing.Size(130, 38);
-            this.SubTotalTB.TabIndex = 10;
+            this.SubTotalTB.TabStop = false;
             // 
             // TotalLabel
             // 
@@ -206,7 +210,6 @@
             this.TotalLabel.Margin = new System.Windows.Forms.Padding(3, 30, 3, 0);
             this.TotalLabel.Name = "TotalLabel";
             this.TotalLabel.Size = new System.Drawing.Size(87, 32);
-            this.TotalLabel.TabIndex = 9;
             this.TotalLabel.Text = "Total W/ Tax:";
             // 
             // TotalTB
@@ -217,7 +220,7 @@
             this.TotalTB.Name = "TotalTB";
             this.TotalTB.ReadOnly = true;
             this.TotalTB.Size = new System.Drawing.Size(130, 38);
-            this.TotalTB.TabIndex = 10;
+            this.TotalTB.TabStop = false;
             //
             // AddBCICheckBox
             //
@@ -255,6 +258,7 @@
             this.Controls.Add(this.QuantityTB);
             this.Controls.Add(this.SubTotalLabel);
             this.Controls.Add(this.SubTotalTB);
+            this.Controls.Add(this.QuantityXLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(750, 780);
             this.Name = "PriceCalculatorGUI";
@@ -277,6 +281,7 @@
         private System.Windows.Forms.TextBox CostTB;
         private System.Windows.Forms.Label RetailPriceLabel;
         private System.Windows.Forms.TextBox RetailPriceTB;
+        private System.Windows.Forms.Label QuantityXLabel;
         private System.Windows.Forms.Label QuantityLabel;
         private System.Windows.Forms.TextBox QuantityTB;
         private System.Windows.Forms.Label SubTotalLabel;
