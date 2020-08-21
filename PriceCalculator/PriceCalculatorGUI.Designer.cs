@@ -152,7 +152,6 @@
             this.RetailPriceTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.RetailPriceTB.Location = new System.Drawing.Point(391, 345);
             this.RetailPriceTB.Name = "RetailPriceTB";
-            this.RetailPriceTB.ReadOnly = true;
             this.RetailPriceTB.Size = new System.Drawing.Size(130, 38);
             this.RetailPriceTB.TabStop = false;
             //

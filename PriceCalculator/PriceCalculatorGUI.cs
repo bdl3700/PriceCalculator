@@ -30,9 +30,11 @@ namespace PriceCalculator
             FirearmRB.CheckedChanged += FirearmRB_CheckedChanged;
             AmmoRB.Click += AmmoRB_Click;
             NFAItemRB.Click += NFAItemRB_Click;
-            CostTB.KeyUp += TextBoxes_KeyUp;
+            CostTB.KeyUp += CostTB_KeyUp;
             CostTB.KeyPress += BasicTextBox_KeyPress;
-            QuantityTB.KeyUp += TextBoxes_KeyUp;
+            RetailPriceTB.KeyUp += RetailAndQuantityTB_KeyUp;
+            RetailPriceTB.KeyPress += BasicTextBox_KeyPress;
+            QuantityTB.KeyUp += RetailAndQuantityTB_KeyUp;
             QuantityTB.KeyPress += BasicTextBox_KeyPress;
             QuantityTB.KeyPress += QuantityTB_KeyPress;
             AddBCICheckBox.Click += AddBCICheckBox_Click;
@@ -43,6 +45,7 @@ namespace PriceCalculator
             CalculateFromCost();
         }
 
+
         /// <summary>
         /// Handles recalculating the price after a chenge in whether or not a BCI check is necessary.
         /// </summary>
@@ -50,7 +53,7 @@ namespace PriceCalculator
         /// <param name="e"></param>
         private void AddBCICheckBox_Click(object sender, EventArgs e)
         {
-            CalculateFromCost();
+            CalculateTotals();
         }
 
         /// <summary>
@@ -65,25 +68,92 @@ namespace PriceCalculator
             AddBCICheckBox.Enabled = !AddBCICheckBox.Enabled;
         }
 
+        /// <summary>
+        /// Updates the total prices when the retail price or the quantity selected is updates
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RetailAndQuantityTB_KeyUp(object sender, KeyEventArgs e)
+        {
+            CalculateTotals();
+        }
 
         /// <summary>
         /// Handles recalculating the price after adding a new digit to the price or changing the quantity
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TextBoxes_KeyUp(object sender, KeyEventArgs e)
+        private void CostTB_KeyUp(object sender, KeyEventArgs e)
         {
             CalculateFromCost();
         }
 
         /// <summary>
-        /// Handles keystrokes and forbids the use of letters in the cost box. Warns the user 
+        /// Handles keystrokes and forbids the use of letters box. Warns the user 
         /// to not use letters in the cost box if they try.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BasicTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            #region HotKey Handlers
+            if (e.KeyChar == 'a')
+            {
+                e.Handled = true;
+                if (AccessoryRB.Checked)
+                    AmmoRB.PerformClick();
+                else
+                    AccessoryRB.PerformClick();
+                return;
+            }
+            if (e.KeyChar == 'f')
+            {
+                e.Handled = true;
+                FirearmRB.PerformClick();
+                return;
+            }
+            if (e.KeyChar == 'n')
+            {
+                e.Handled = true;
+                NFAItemRB.PerformClick();
+                return;
+            }
+            if (e.KeyChar == 'b')
+            {
+
+                e.Handled = true;
+
+                if (FirearmRB.Checked)
+                {
+                    AddBCICheckBox.Checked = !AddBCICheckBox.Checked;
+                    AddBCICheckBox_Click(null, null);
+                }
+
+                return;
+            }
+            if (e.KeyChar == 'c')
+            {
+                e.Handled = true;
+                CostTB.Focus();
+                CostTB.SelectAll();
+                return;
+            }
+            if (e.KeyChar == 'r')
+            {
+                e.Handled = true;
+                RetailPriceTB.Focus();
+                RetailPriceTB.SelectAll();
+                return;
+            }
+            if (e.KeyChar == 'q')
+            {
+                e.Handled = true;
+                QuantityTB.Focus();
+                QuantityTB.SelectAll();
+                return;
+            }
+            #endregion
+
             if (char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
@@ -152,7 +222,7 @@ namespace PriceCalculator
         #endregion
 
         /// <summary>
-        /// Calculates the correct price based upon the current value in the text box and 
+        /// Calculates the correct price based upon the current value in the cost text box, the quantity, and 
         /// the currently selected item. It then sets the price box's text to reflect the new price.
         /// </summary>
         private void CalculateFromCost()
@@ -162,11 +232,20 @@ namespace PriceCalculator
             double unitPrice = CurrentItem.Calculate(cost);
             RetailPriceTB.Text = unitPrice.ToString();
 
-            CalculateTotals(unitPrice);
+            CalculateTotals();
         }
 
-        private void CalculateTotals(double unitPrice)
+        /// <summary>
+        /// Given a unit price and quantity calculates the appropriate subtotal and total prices and writes the 
+        /// new values to the appropraite text boxes.
+        /// </summary>
+        /// <param name="unitPrice"></param>
+        private void CalculateTotals()
         {
+            double.TryParse(RetailPriceTB.Text, out double unitPrice);
+
+            unitPrice = Math.Round(unitPrice, 2, MidpointRounding.AwayFromZero);
+
             int.TryParse(QuantityTB.Text, out int quantity);
             double subTotal = unitPrice * quantity;
 
@@ -186,7 +265,7 @@ namespace PriceCalculator
         /// <returns>The given price with salestax added</returns>
         public double AddTax(double price)
         {
-            return Math.Round((price * 1.0725), 2);
+            return Math.Round((price * 1.0725), 2, MidpointRounding.AwayFromZero);
         }
     }
 }
