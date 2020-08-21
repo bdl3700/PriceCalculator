@@ -40,7 +40,7 @@ namespace PriceCalculator
             //Select the default Item type
             AccessoryRB.Checked = true;
             CurrentItem = new Accessory();
-            ReCalculate();
+            CalculateFromCost();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace PriceCalculator
         /// <param name="e"></param>
         private void AddBCICheckBox_Click(object sender, EventArgs e)
         {
-            ReCalculate();
+            CalculateFromCost();
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace PriceCalculator
         /// <param name="e"></param>
         private void TextBoxes_KeyUp(object sender, KeyEventArgs e)
         {
-            ReCalculate();
+            CalculateFromCost();
         }
 
         /// <summary>
@@ -110,6 +110,7 @@ namespace PriceCalculator
             }
         }
 
+        #region Radio Button Handlers
         /// <summary>
         /// Handles clicking the Ammo radio button
         /// </summary>
@@ -118,7 +119,7 @@ namespace PriceCalculator
         private void AmmoRB_Click(object sender, EventArgs e)
         {
             CurrentItem = new Ammo();
-            ReCalculate();
+            CalculateFromCost();
         }
 
         /// <summary>
@@ -129,7 +130,7 @@ namespace PriceCalculator
         private void FirearmRB_Click(object sender, EventArgs e)
         {
             CurrentItem = new Firearm();
-            ReCalculate();
+            CalculateFromCost();
         }
 
         /// <summary>
@@ -140,33 +141,40 @@ namespace PriceCalculator
         private void AccessoryRB_Click(object sender, EventArgs e)
         {
             CurrentItem = new Accessory();
-            ReCalculate();
+            CalculateFromCost();
         }
 
         private void NFAItemRB_Click(object sender, EventArgs e)
         {
             CurrentItem = new NFAItem();
-            ReCalculate();
+            CalculateFromCost();
         }
+        #endregion
 
         /// <summary>
         /// Calculates the correct price based upon the current value in the text box and 
-        /// the currently selected item. It then sets the price box's text to relfect the new price.
+        /// the currently selected item. It then sets the price box's text to reflect the new price.
         /// </summary>
-        private void ReCalculate()
+        private void CalculateFromCost()
         {
             double.TryParse(CostTB.Text, out double cost);
 
             double unitPrice = CurrentItem.Calculate(cost);
             RetailPriceTB.Text = unitPrice.ToString();
 
+            CalculateTotals(unitPrice);
+        }
+
+        private void CalculateTotals(double unitPrice)
+        {
             int.TryParse(QuantityTB.Text, out int quantity);
             double subTotal = unitPrice * quantity;
-            SubTotalTB.Text = subTotal.ToString();
 
             //Add the cost of a BCI check if necessary.
             if (AddBCICheckBox.Checked)
                 subTotal = subTotal + 7.5;
+
+            SubTotalTB.Text = subTotal.ToString();
 
             TotalTB.Text = AddTax(subTotal).ToString();
         }
