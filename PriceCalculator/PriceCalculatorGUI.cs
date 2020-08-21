@@ -29,7 +29,7 @@ namespace PriceCalculator
             FirearmRB.Click += FirearmRB_Click;
             FirearmRB.CheckedChanged += FirearmRB_CheckedChanged;
             AmmoRB.Click += AmmoRB_Click;
-            SupressorRB.Click += SupressorRB_Click;
+            NFAItemRB.Click += NFAItemRB_Click;
             CostTB.KeyUp += TextBoxes_KeyUp;
             CostTB.KeyPress += BasicTextBox_KeyPress;
             QuantityTB.KeyUp += TextBoxes_KeyUp;
@@ -143,9 +143,9 @@ namespace PriceCalculator
             ReCalculate();
         }
 
-        private void SupressorRB_Click(object sender, EventArgs e)
+        private void NFAItemRB_Click(object sender, EventArgs e)
         {
-            CurrentItem = new Supressor();
+            CurrentItem = new NFAItem();
             ReCalculate();
         }
 

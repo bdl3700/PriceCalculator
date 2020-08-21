@@ -34,7 +34,7 @@
             this.AccessoryRB = new System.Windows.Forms.RadioButton();
             this.AmmoRB = new System.Windows.Forms.RadioButton();
             this.FirearmRB = new System.Windows.Forms.RadioButton();
-            this.SupressorRB = new System.Windows.Forms.RadioButton();
+            this.NFAItemRB = new System.Windows.Forms.RadioButton();
             this.AddBCICheckBox = new System.Windows.Forms.CheckBox();
             this.CostLabel = new System.Windows.Forms.Label();
             this.CostTB = new System.Windows.Forms.TextBox();
@@ -106,18 +106,18 @@
             this.FirearmRB.Text = "Firearm";
             this.FirearmRB.UseVisualStyleBackColor = true;
             //
-            // SupressorRB
+            // NFAItemRB
             //
-            this.SupressorRB.AutoSize = true;
-            this.SupressorRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.SupressorRB.Location = new System.Drawing.Point(19, 415);
-            this.SupressorRB.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.SupressorRB.Name = "SupressorRB";
-            this.SupressorRB.Size = new System.Drawing.Size(144, 35);
-            this.SupressorRB.TabIndex = 5;
-            this.SupressorRB.TabStop = true;
-            this.SupressorRB.Text = "Supressor";
-            this.SupressorRB.UseVisualStyleBackColor = true;
+            this.NFAItemRB.AutoSize = true;
+            this.NFAItemRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.NFAItemRB.Location = new System.Drawing.Point(19, 415);
+            this.NFAItemRB.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.NFAItemRB.Name = "NFAItemRB";
+            this.NFAItemRB.Size = new System.Drawing.Size(144, 35);
+            this.NFAItemRB.TabIndex = 5;
+            this.NFAItemRB.TabStop = true;
+            this.NFAItemRB.Text = "NFA Item";
+            this.NFAItemRB.UseVisualStyleBackColor = true;
             // 
             // CostLabel
             // 
@@ -250,7 +250,7 @@
             this.Controls.Add(this.FirearmRB);
             this.Controls.Add(this.AmmoRB);
             this.Controls.Add(this.AccessoryRB);
-            this.Controls.Add(this.SupressorRB);
+            this.Controls.Add(this.NFAItemRB);
             this.Controls.Add(this.AddBCICheckBox);
             this.Controls.Add(this.TypeLabel);
             this.Controls.Add(this.HeaderLabel);
@@ -276,7 +276,7 @@
         private System.Windows.Forms.RadioButton AccessoryRB;
         private System.Windows.Forms.RadioButton AmmoRB;
         private System.Windows.Forms.RadioButton FirearmRB;
-        private System.Windows.Forms.RadioButton SupressorRB;
+        private System.Windows.Forms.RadioButton NFAItemRB;
         private System.Windows.Forms.CheckBox AddBCICheckBox;
         private System.Windows.Forms.TextBox CostTB;
         private System.Windows.Forms.Label RetailPriceLabel;
