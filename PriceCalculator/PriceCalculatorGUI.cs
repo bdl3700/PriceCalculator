@@ -38,11 +38,17 @@ namespace PriceCalculator
             QuantityTB.KeyPress += BasicTextBox_KeyPress;
             QuantityTB.KeyPress += QuantityTB_KeyPress;
             AddBCICheckBox.Click += AddBCICheckBox_Click;
+            HelpButtonClicked += PriceCalculatorGUI_HelpButtonClicked;
 
             //Select the default Item type
             AccessoryRB.Checked = true;
             CurrentItem = new Accessory();
             CalculateFromCost();
+        }
+
+        private void PriceCalculatorGUI_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            System.Diagnostics.Process.Start("chrome.exe", "Calculator_Help_Doc.pdf");
         }
 
 

@@ -262,6 +262,9 @@
             this.MinimumSize = new System.Drawing.Size(750, 780);
             this.Name = "PriceCalculatorGUI";
             this.Text = "Price Calculator";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.HelpButton = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
