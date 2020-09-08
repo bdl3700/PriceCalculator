@@ -14,6 +14,9 @@ coverage.opencover.xml
 #The specific Item Types I'll be using in practice
 Items.cs
 
+#The help document which describes the software recipient
+Calculator_Help_Doc.pdf
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

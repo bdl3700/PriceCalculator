@@ -97,7 +97,7 @@ namespace PriceCalculator
         private void BasicTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             #region HotKey Handlers
-            if (e.KeyChar == 'a')
+            if (e.KeyChar == 'a' || e.KeyChar == 'A')
             {
                 e.Handled = true;
                 if (AccessoryRB.Checked)
@@ -106,19 +106,19 @@ namespace PriceCalculator
                     AccessoryRB.PerformClick();
                 return;
             }
-            if (e.KeyChar == 'f')
+            if (e.KeyChar == 'f' || e.KeyChar == 'F')
             {
                 e.Handled = true;
                 FirearmRB.PerformClick();
                 return;
             }
-            if (e.KeyChar == 'n')
+            if (e.KeyChar == 'n' || e.KeyChar == 'N')
             {
                 e.Handled = true;
                 NFAItemRB.PerformClick();
                 return;
             }
-            if (e.KeyChar == 'b')
+            if (e.KeyChar == 'b' || e.KeyChar == 'B')
             {
 
                 e.Handled = true;
@@ -131,21 +131,21 @@ namespace PriceCalculator
 
                 return;
             }
-            if (e.KeyChar == 'c')
+            if (e.KeyChar == 'c' || e.KeyChar == 'C')
             {
                 e.Handled = true;
                 CostTB.Focus();
                 CostTB.SelectAll();
                 return;
             }
-            if (e.KeyChar == 'r')
+            if (e.KeyChar == 'r' || e.KeyChar == 'R')
             {
                 e.Handled = true;
                 RetailPriceTB.Focus();
                 RetailPriceTB.SelectAll();
                 return;
             }
-            if (e.KeyChar == 'q')
+            if (e.KeyChar == 'q' || e.KeyChar == 'Q')
             {
                 e.Handled = true;
                 QuantityTB.Focus();
