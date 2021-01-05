@@ -38,7 +38,7 @@ namespace PriceCalculator
             QuantityTB.KeyPress += BasicTextBox_KeyPress;
             QuantityTB.KeyPress += QuantityTB_KeyPress;
             AddBCICheckBox.Click += AddBCICheckBox_Click;
-            HelpButtonClicked += PriceCalculatorGUI_HelpButtonClicked;
+            HButton.Click += PriceCalculatorGUI_HelpButtonClicked;
 
             //Select the default Item type
             AccessoryRB.Checked = true;
@@ -46,11 +46,15 @@ namespace PriceCalculator
             CalculateFromCost();
         }
 
-        private void PriceCalculatorGUI_HelpButtonClicked(object sender, CancelEventArgs e)
+        /// <summary>
+        /// Opens the calculator's help document.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PriceCalculatorGUI_HelpButtonClicked(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("chrome.exe", "Calculator_Help_Doc.pdf");
         }
-
 
         /// <summary>
         /// Handles recalculating the price after a chenge in whether or not a BCI check is necessary.

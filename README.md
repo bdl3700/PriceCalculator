@@ -6,4 +6,5 @@ Sporting Goods industry yet distributed with key components absent. Such exempti
 privacy of the sotware's recipient regarding pricing strategy.
 
 ## Sources
-1. Calculator Icon - http://www.iconarchive.com/show/small-n-flat-icons-by-paomedia/calculator-icon.html
+1. [Calculator Icon](http://www.iconarchive.com/show/small-n-flat-icons-by-paomedia/calculator-icon.html)
+2. [Help Button Image](https://pixabay.com/vectors/questionmark-info-help-faq-support-308636/)

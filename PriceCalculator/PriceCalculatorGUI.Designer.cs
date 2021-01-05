@@ -47,6 +47,7 @@
             this.SubTotalTB = new System.Windows.Forms.TextBox();
             this.TotalLabel = new System.Windows.Forms.Label();
             this.TotalTB = new System.Windows.Forms.TextBox();
+            this.HButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // HeaderLabel
@@ -234,10 +235,18 @@
             this.AddBCICheckBox.Text = "Add BCI Check";
             this.AddBCICheckBox.UseVisualStyleBackColor = true;
             this.AddBCICheckBox.Enabled = false;
+            //
+            // HButton (HelpButton)
+            //
+            this.HButton.Location = new System.Drawing.Point(640, 650);
+            this.HButton.Size = new System.Drawing.Size(70, 70);
+            this.HButton.Image = System.Drawing.Image.FromFile("questionMark.png");
+            this.HButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HButton.FlatAppearance.BorderSize = 0;
             // 
             // PriceCalculatorGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.Size(16, 31);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 512);
             this.Controls.Add(this.RetailPriceTB);
@@ -258,13 +267,11 @@
             this.Controls.Add(this.SubTotalLabel);
             this.Controls.Add(this.SubTotalTB);
             this.Controls.Add(this.QuantityXLabel);
+            this.Controls.Add(this.HButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(750, 780);
             this.Name = "PriceCalculatorGUI";
             this.Text = "Price Calculator";
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.HelpButton = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,6 +297,7 @@
         private System.Windows.Forms.TextBox SubTotalTB;
         private System.Windows.Forms.Label TotalLabel;
         private System.Windows.Forms.TextBox TotalTB;
+        private System.Windows.Forms.Button HButton;
     }
 }
 
