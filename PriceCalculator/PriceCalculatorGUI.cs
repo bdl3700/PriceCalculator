@@ -37,6 +37,8 @@ namespace PriceCalculator
             QuantityTB.KeyUp += RetailAndQuantityTB_KeyUp;
             QuantityTB.KeyPress += BasicTextBox_KeyPress;
             QuantityTB.KeyPress += QuantityTB_KeyPress;
+            TotalTB.KeyPress += BasicTextBox_KeyPress;
+            TotalTB.KeyUp += TotalTB_KeyUp; ;
             AddBCICheckBox.Click += AddBCICheckBox_Click;
             HButton.Click += PriceCalculatorGUI_HelpButtonClicked;
 
@@ -45,6 +47,24 @@ namespace PriceCalculator
             CurrentItem = new Accessory();
             CalculateFromCost();
         }
+
+        /// <summary>
+        /// Updates the Retail price and subtotal boxes based upon the input quantity and total price.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TotalTB_KeyUp(object sender, KeyEventArgs e)
+        {
+            Double.TryParse(TotalTB.Text, out double total);
+            int.TryParse(QuantityTB.Text, out int quantity);
+            double subTotal = RemoveTax(total);
+
+            SubTotalTB.Text = subTotal.ToString();
+            RetailPriceTB.Text = Math.Round(subTotal / quantity, 2, MidpointRounding.AwayFromZero).ToString();
+            CostTB.Text = "";
+        }
+
+
 
         /// <summary>
         /// Opens the calculator's help document.
@@ -162,6 +182,13 @@ namespace PriceCalculator
                 QuantityTB.SelectAll();
                 return;
             }
+            if (e.KeyChar == 't' || e.KeyChar == 'T')
+            {
+                e.Handled = true;
+                TotalTB.Focus();
+                TotalTB.SelectAll();
+                return;
+            }
             #endregion
 
             if (char.IsLetter(e.KeyChar))
@@ -269,13 +296,23 @@ namespace PriceCalculator
         }
 
         /// <summary>
-        /// Adds the appropriate sales tax for salt lake county, Utah as of May 2019.
+        /// Adds the appropriate sales tax for salt lake county, Utah as of April 2021.
         /// </summary>
         /// <param name="price">The price to add tax to</param>
         /// <returns>The given price with salestax added</returns>
         public double AddTax(double price)
         {
             return Math.Round((price * 1.0725), 2, MidpointRounding.AwayFromZero);
+        }
+
+        /// <summary>
+        /// Removes the appropriate sales tax for salt lake county, Utah as of April 2021.
+        /// </summary>
+        /// <param name="price">The price from which to remove sales tax</param>
+        /// <returns>The price to which when sales tax is added produces the input price</returns>
+        public double RemoveTax(double price)
+        {
+            return Math.Round((price / 1.0725), 2, MidpointRounding.AwayFromZero);
         }
     }
 }

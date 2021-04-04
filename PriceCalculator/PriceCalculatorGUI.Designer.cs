@@ -218,7 +218,6 @@
             this.TotalTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.TotalTB.Location = new System.Drawing.Point(391, 625);
             this.TotalTB.Name = "TotalTB";
-            this.TotalTB.ReadOnly = true;
             this.TotalTB.Size = new System.Drawing.Size(130, 38);
             this.TotalTB.TabStop = false;
             //
